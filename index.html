@@ -1,1178 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoundX - Young Entrepreneur Network</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            cyan: '#06b6d4',
-                            neon: '#22c55e',
-                            amber: '#f59e0b',
-                            purple: '#a855f7'
-                        },
-                        darkbg: '#080c14',
-                        cardbg: '#0f172a',
-                        bordercolor: '#1e293b'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #080c14;
-            color: #f1f5f9;
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #080c14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #334155;
-        }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marthi Megwani – Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f3;--surface:#fff;--ink:#16302a;--muted:#5d726b;--line:#d9e3de;--brand:#14463a;--on-brand:#fff;--accent:#f2b705;--on-accent:#2a2200;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a17;--surface:#16262f;--ink:#e8f1ed;--muted:#97aba3;--line:#27403a;--brand:#2f8f75;--on-brand:#04130e;--accent:#f2b705;--on-accent:#2a2200}}
+:root[data-theme="dark"]{--bg:#0e1a17;--surface:#16262f;--ink:#e8f1ed;--muted:#97aba3;--line:#27403a;--brand:#2f8f75;--on-brand:#04130e;--accent:#f2b705;--on-accent:#2a2200}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 120px}
+header{padding:28px 0 12px}
+h1{font:800 34px/1.05 "Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:-.5px}
+.sub{color:var(--muted);margin:6px 0 0}
+.chip{display:inline-block;background:var(--accent);color:var(--on-accent);font-weight:700;padding:4px 12px;border-radius:99px;font-size:14px;margin-top:12px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 16px;border-radius:99px;font:inherit;font-weight:600}
+nav button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+h2{font:800 20px "Bricolage Grotesque",system-ui,sans-serif;margin:22px 0 8px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.name{font-weight:700;display:flex;align-items:center;gap:8px}
+.veg{width:14px;height:14px;border:2px solid #1a9a4a;display:inline-grid;place-items:center;flex:none;border-radius:3px}
+.veg::after{content:"";width:6px;height:6px;border-radius:50%;background:#1a9a4a}
+.desc{color:var(--muted);font-size:14px;margin:2px 0 0}
+.price{font-weight:700;margin-top:4px}
+.add{border:2px solid var(--brand);color:var(--brand);background:transparent;font:inherit;font-weight:800;padding:8px 20px;border-radius:10px;min-width:84px}
+.qty{display:flex;align-items:center;background:var(--brand);color:var(--on-brand);border-radius:10px;min-width:84px;justify-content:space-between}
+.qty button{background:none;border:0;color:inherit;font:800 20px/1 inherit;padding:8px 12px}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);z-index:10}
+.bar button,.cta{display:flex;justify-content:space-between;width:100%;max-width:560px;margin:0 auto;border:0;background:var(--brand);color:var(--on-brand);font:inherit;font-weight:800;padding:15px 18px;border-radius:14px;text-decoration:none}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:20;display:none;align-items:flex-end}
+.sheet.open{display:flex}
+.panel{background:var(--surface);width:100%;max-width:560px;margin:0 auto;border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));max-height:90%;overflow:auto}
+.row{display:flex;justify-content:space-between;padding:6px 0}
+.total{border-top:1px dashed var(--line);margin-top:8px;padding-top:10px;font-weight:800}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input{width:100%;font:inherit;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.close{float:right;border:0;background:none;color:var(--muted);font:inherit;padding:4px}
+.note{color:var(--muted);font-size:13px;margin-top:10px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
-
-    <!-- GLOBAL LOADING OVERLAY -->
-    <div id="loadingOverlay" class="fixed inset-0 bg-darkbg z-50 flex flex-col items-center justify-center gap-3">
-        <div class="relative flex items-center justify-center">
-            <div class="w-16 h-16 border-4 border-brand-500/20 border-t-brand-500 rounded-full animate-spin"></div>
-            <i class="fa-solid fa-rocket text-brand-500 text-xl absolute"></i>
-        </div>
-        <p class="text-sm font-bold text-gray-400 tracking-wider">CONNECTING TO FOUNDX NETWORK...</p>
-    </div>
-
-    <!-- APP WRAPPER -->
-    <div id="app" class="min-h-screen flex flex-col">
-
-        <!-- AUTH SCREEN (LOGIN / SIGNUP) -->
-        <div id="authScreen" class="hidden flex-1 flex items-center justify-center p-4 sm:p-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/30 via-darkbg to-darkbg">
-            <div class="w-full max-w-md">
-                <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 via-brand-500 to-brand-cyan text-white text-2xl font-black mb-3 shadow-xl shadow-brand-500/20">
-                        <i class="fa-solid fa-rocket"></i>
-                    </div>
-                    <h1 class="text-3xl font-black tracking-tight text-white">Found<span class="text-brand-500">X</span></h1>
-                    <p class="text-gray-400 text-sm mt-1">Global Community for Teen & Young Entrepreneurs</p>
-                </div>
-
-                <div class="glass-panel p-6 sm:p-8 rounded-2xl shadow-2xl relative">
-                    <div class="flex border-b border-gray-800 mb-6">
-                        <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 pb-3 text-center font-bold text-brand-500 border-b-2 border-brand-500 transition-all">Sign In</button>
-                        <button id="tabSignup" onclick="switchAuthTab('signup')" class="flex-1 pb-3 text-center font-bold text-gray-400 border-b-2 border-transparent transition-all">Create Account</button>
-                    </div>
-
-                    <div id="authErrorMsg" class="hidden mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-xs text-red-400"></div>
-
-                    <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
-                        <div id="nameFieldContainer" class="hidden">
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Your Name</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" id="authName" placeholder="e.g. Alex Rivera" class="w-full pl-10 pr-4 py-2.5 bg-gray-900/80 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Email Address</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-envelope"></i></span>
-                                <input type="email" id="authEmail" required placeholder="founder@startup.com" class="w-full pl-10 pr-4 py-2.5 bg-gray-900/80 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Password</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" id="authPassword" required placeholder="••••••••" class="w-full pl-10 pr-4 py-2.5 bg-gray-900/80 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-                        </div>
-
-                        <button type="submit" id="authSubmitBtn" class="w-full py-3 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold rounded-xl shadow-lg shadow-brand-500/25 transition flex items-center justify-center gap-2">
-                            <span>Sign In</span> <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </button>
-                    </form>
-
-                    <div class="mt-6 text-center text-xs text-gray-500 flex items-center justify-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span>Real-time global sync active for all members</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ONBOARDING QUESTIONNAIRE SCREEN -->
-        <div id="onboardingScreen" class="hidden flex-1 flex items-center justify-center p-4 sm:p-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/30 via-darkbg to-darkbg">
-            <div class="w-full max-w-2xl glass-panel p-6 sm:p-10 rounded-3xl shadow-2xl relative">
-                <div class="mb-8">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-black uppercase tracking-wider text-brand-cyan" id="stepIndicator">Step 1 of 4</span>
-                        <span class="text-xs font-bold text-gray-400" id="stepPercent">25% Completed</span>
-                    </div>
-                    <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                        <div id="progressBar" class="h-full bg-gradient-to-r from-brand-500 to-brand-cyan transition-all duration-300 w-1/4"></div>
-                    </div>
-                </div>
-
-                <form id="onboardingForm" onsubmit="handleOnboardingSubmit(event)">
-                    <!-- STEP 1 -->
-                    <div id="onboardStep1" class="space-y-4">
-                        <div class="mb-4">
-                            <h2 class="text-2xl font-black text-white">Basic Profile Setup</h2>
-                            <p class="text-gray-400 text-sm">Introduce yourself to fellow young founders across the world.</p>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Full Name *</label>
-                                <input type="text" id="obName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Country *</label>
-                                <select id="obCountry" required class="w-full px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                                    <option value="">Select Country</option>
-                                    <option value="India">India</option>
-                                    <option value="United States">United States</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="Canada">Canada</option>
-                                    <option value="Singapore">Singapore</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="UAE">United Arab Emirates</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Age *</label>
-                                <input type="number" id="obAge" min="10" max="35" required placeholder="e.g. 18" class="w-full px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Date of Birth</label>
-                                <input type="date" id="obDob" class="w-full px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Phone Number (Optional)</label>
-                                <input type="tel" id="obPhone" placeholder="+91 9876543210" class="w-full px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Email</label>
-                                <input type="email" id="obEmail" readonly class="w-full px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-xl text-gray-400 text-sm cursor-not-allowed">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 2 -->
-                    <div id="onboardStep2" class="hidden space-y-4">
-                        <div class="mb-4">
-                            <h2 class="text-2xl font-black text-white">Education Status / Class</h2>
-                            <p class="text-gray-400 text-sm">Where are you currently in your academic journey?</p>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="flex items-center p-4 bg-gray-900/80 border border-gray-800 rounded-xl cursor-pointer hover:border-brand-500 transition group">
-                                <input type="radio" name="obStandard" value="Middle School (6th-8th)" class="text-brand-500">
-                                <div class="ml-3">
-                                    <span class="block font-bold text-white group-hover:text-brand-500">Middle School</span>
-                                    <span class="text-xs text-gray-500">6th to 8th Standard</span>
-                                </div>
-                            </label>
-                            <label class="flex items-center p-4 bg-gray-900/80 border border-gray-800 rounded-xl cursor-pointer hover:border-brand-500 transition group">
-                                <input type="radio" name="obStandard" value="High School (9th-12th)" checked class="text-brand-500">
-                                <div class="ml-3">
-                                    <span class="block font-bold text-white group-hover:text-brand-500">High School</span>
-                                    <span class="text-xs text-gray-500">9th to 12th Standard</span>
-                                </div>
-                            </label>
-                            <label class="flex items-center p-4 bg-gray-900/80 border border-gray-800 rounded-xl cursor-pointer hover:border-brand-500 transition group">
-                                <input type="radio" name="obStandard" value="Undergraduate Student" class="text-brand-500">
-                                <div class="ml-3">
-                                    <span class="block font-bold text-white group-hover:text-brand-500">College Student</span>
-                                    <span class="text-xs text-gray-500">Bachelor's / Diploma</span>
-                                </div>
-                            </label>
-                            <label class="flex items-center p-4 bg-gray-900/80 border border-gray-800 rounded-xl cursor-pointer hover:border-brand-500 transition group">
-                                <input type="radio" name="obStandard" value="Self-Taught Builder" class="text-brand-500">
-                                <div class="ml-3">
-                                    <span class="block font-bold text-white group-hover:text-brand-500">Self-Taught / Dropout</span>
-                                    <span class="text-xs text-gray-500">Building full time</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3 -->
-                    <div id="onboardStep3" class="hidden space-y-4">
-                        <div class="mb-4">
-                            <h2 class="text-2xl font-black text-white">Select Your Main Field</h2>
-                            <p class="text-gray-400 text-sm">Choose the primary field where you are building or planning your idea.</p>
-                        </div>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <div onclick="selectField(this, 'AI & Machine Learning')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500 border-brand-500 bg-brand-500/10">
-                                <i class="fa-solid fa-robot text-2xl text-brand-500 mb-2"></i>
-                                <div class="text-sm font-bold">AI & ML</div>
-                            </div>
-                            <div onclick="selectField(this, 'SaaS & Web Apps')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500">
-                                <i class="fa-solid fa-code text-2xl text-brand-cyan mb-2"></i>
-                                <div class="text-sm font-bold">SaaS / Web</div>
-                            </div>
-                            <div onclick="selectField(this, 'Fintech & Web3')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500">
-                                <i class="fa-solid fa-coins text-2xl text-brand-amber mb-2"></i>
-                                <div class="text-sm font-bold">Fintech</div>
-                            </div>
-                            <div onclick="selectField(this, 'E-Commerce & D2C')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500">
-                                <i class="fa-solid fa-cart-shopping text-2xl text-brand-neon mb-2"></i>
-                                <div class="text-sm font-bold">E-Commerce</div>
-                            </div>
-                            <div onclick="selectField(this, 'EdTech')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500">
-                                <i class="fa-solid fa-graduation-cap text-2xl text-blue-400 mb-2"></i>
-                                <div class="text-sm font-bold">EdTech</div>
-                            </div>
-                            <div onclick="selectField(this, 'Hardware & Robotics')" class="field-card p-4 bg-gray-900 border border-gray-800 rounded-2xl cursor-pointer text-center hover:border-brand-500">
-                                <i class="fa-solid fa-microchip text-2xl text-brand-purple mb-2"></i>
-                                <div class="text-sm font-bold">Hardware</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="obField" value="AI & Machine Learning">
-                    </div>
-
-                    <!-- STEP 4 -->
-                    <div id="onboardStep4" class="hidden space-y-4">
-                        <div class="mb-4">
-                            <h2 class="text-2xl font-black text-white">Startup Idea & Execution Stage</h2>
-                            <p class="text-gray-400 text-sm">Tell other founders what you are executing on.</p>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Startup Idea / Pitch *</label>
-                            <textarea id="obIdea" rows="3" required placeholder="Describe your startup concept, target audience, and problem statement..." class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500"></textarea>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Execution Stage *</label>
-                            <select id="obStatus" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                                <option value="Idea Stage">💡 Idea / Concept Phase</option>
-                                <option value="Building MVP">🛠️ Currently Building MVP</option>
-                                <option value="MVP Launched">🚀 MVP Launched & Live</option>
-                                <option value="Generating Revenue">💰 Generating Revenue</option>
-                                <option value="Scaling">📈 Scaling & Seeking Co-founders</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Step Nav Controls -->
-                    <div class="flex justify-between items-center mt-8 pt-4 border-t border-gray-800">
-                        <button type="button" id="prevBtn" onclick="navigateStep(-1)" class="px-5 py-2.5 bg-gray-800 text-white font-medium rounded-xl transition invisible">Back</button>
-                        <button type="button" id="nextBtn" onclick="navigateStep(1)" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl transition">Next Step <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></button>
-                        <button type="submit" id="submitOnboardBtn" class="hidden px-6 py-2.5 bg-gradient-to-r from-brand-neon to-emerald-600 text-black font-extrabold rounded-xl transition">Join Network 🎉</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- MAIN DASHBOARD SCREEN -->
-        <div id="mainDashboard" class="hidden flex-1 flex flex-col md:flex-row min-h-screen">
-            <!-- SIDEBAR -->
-            <aside class="w-full md:w-64 bg-cardbg border-r border-bordercolor flex flex-col justify-between shrink-0">
-                <div>
-                    <div class="p-5 border-b border-bordercolor flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-cyan flex items-center justify-center text-white font-black text-lg shadow-lg shadow-brand-500/20">
-                                <i class="fa-solid fa-rocket"></i>
-                            </div>
-                            <div>
-                                <span class="text-xl font-black text-white tracking-wide">Found<span class="text-brand-500">X</span></span>
-                                <span class="block text-[10px] text-gray-400 font-semibold tracking-wider uppercase">Community</span>
-                            </div>
-                        </div>
-                        <span class="flex h-2.5 w-2.5 relative">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                        </span>
-                    </div>
-
-                    <nav class="p-3 space-y-1">
-                        <button onclick="switchTab('feed')" id="nav-feed" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-brand-500 bg-brand-500/10 font-bold text-sm transition">
-                            <i class="fa-solid fa-newspaper text-lg"></i>
-                            <span>Community Feed</span>
-                        </button>
-                        <button onclick="switchTab('network')" id="nav-network" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white font-bold text-sm transition">
-                            <i class="fa-solid fa-users text-lg"></i>
-                            <span>Founders Search</span>
-                        </button>
-                        <button onclick="switchTab('profile')" id="nav-profile" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white font-bold text-sm transition">
-                            <i class="fa-solid fa-id-card text-lg"></i>
-                            <span>My Profile</span>
-                        </button>
-                    </nav>
-                </div>
-
-                <div class="p-4 border-t border-bordercolor bg-gray-900/40">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3 overflow-hidden">
-                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-purple text-white font-extrabold flex items-center justify-center shrink-0 shadow" id="sidebarAvatar">U</div>
-                            <div class="truncate">
-                                <div class="text-sm font-bold text-white truncate" id="sidebarUserName">Loading...</div>
-                                <div class="text-xs text-brand-cyan truncate" id="sidebarUserField">Founder</div>
-                            </div>
-                        </div>
-                        <button onclick="logoutUser()" title="Logout" class="text-gray-500 hover:text-red-400 transition p-2">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                        </button>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- MAIN CONTENT AREA -->
-            <main class="flex-1 bg-darkbg flex flex-col overflow-y-auto min-h-0">
-                <header class="h-16 border-b border-bordercolor glass-panel sticky top-0 z-20 px-4 sm:px-8 flex items-center justify-between">
-                    <h2 class="text-lg font-bold text-white flex items-center gap-2" id="currentTabTitle">
-                        <i class="fa-solid fa-newspaper text-brand-500"></i> Global Community Feed
-                    </h2>
-                    <button onclick="openCreatePostModal()" class="px-4 py-2 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-brand-500/20 transition flex items-center gap-2">
-                        <i class="fa-solid fa-plus"></i> <span>Share Idea / Pitch</span>
-                    </button>
-                </header>
-
-                <div class="p-4 sm:p-8 max-w-5xl w-full mx-auto space-y-6">
-                    
-                    <!-- TAB 1: FEED -->
-                    <div id="tab-content-feed" class="space-y-6">
-                        <div class="glass-panel p-4 rounded-2xl flex flex-wrap gap-3 items-center justify-between">
-                            <div class="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                                <i class="fa-solid fa-filter text-brand-cyan"></i> Filter Pitches:
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="filterFeedByField('all')" class="feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-500 text-white">All</button>
-                                <button onclick="filterFeedByField('AI & Machine Learning')" class="feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:bg-gray-700">AI & ML</button>
-                                <button onclick="filterFeedByField('SaaS & Web Apps')" class="feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:bg-gray-700">SaaS</button>
-                                <button onclick="filterFeedByField('Fintech & Web3')" class="feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:bg-gray-700">Fintech</button>
-                                <button onclick="filterFeedByField('E-Commerce & D2C')" class="feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:bg-gray-700">E-Commerce</button>
-                            </div>
-                        </div>
-
-                        <div id="postsFeedList" class="space-y-4"></div>
-                    </div>
-
-                    <!-- TAB 2: FOUNDERS DIRECTORY & LIVE SEARCH -->
-                    <div id="tab-content-network" class="hidden space-y-6">
-                        <div class="glass-panel p-5 rounded-2xl space-y-4">
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <div class="relative flex-1">
-                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" id="networkSearch" oninput="renderFoundersNetwork()" placeholder="Search founders by Name, Country, or Startup Pitch..." class="w-full pl-10 pr-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                                </div>
-                                <select id="networkFieldFilter" onchange="renderFoundersNetwork()" class="px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                                    <option value="all">All Fields</option>
-                                    <option value="AI & Machine Learning">AI & ML</option>
-                                    <option value="SaaS & Web Apps">SaaS & Web</option>
-                                    <option value="Fintech & Web3">Fintech</option>
-                                    <option value="E-Commerce & D2C">E-Commerce</option>
-                                    <option value="EdTech">EdTech</option>
-                                    <option value="Hardware & Robotics">Hardware</option>
-                                </select>
-                                <select id="networkStageFilter" onchange="renderFoundersNetwork()" class="px-4 py-2.5 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                                    <option value="all">All Execution Stages</option>
-                                    <option value="Idea Stage">💡 Idea Phase</option>
-                                    <option value="Building MVP">🛠️ Building MVP</option>
-                                    <option value="MVP Launched">🚀 MVP Launched</option>
-                                    <option value="Generating Revenue">💰 Revenue</option>
-                                </select>
-                            </div>
-                            <div class="flex items-center justify-between text-xs text-gray-400 pt-1">
-                                <span>Showing all registered entrepreneurs in real-time</span>
-                                <span id="founderCountBadge" class="bg-brand-500/20 text-brand-cyan border border-brand-500/30 px-2 py-0.5 rounded-full font-mono font-bold">0 Founders Registered</span>
-                            </div>
-                        </div>
-
-                        <div id="foundersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-                    </div>
-
-                    <!-- TAB 3: MY PROFILE -->
-                    <div id="tab-content-profile" class="hidden space-y-6">
-                        <div class="glass-panel rounded-2xl p-6 sm:p-8 relative">
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-gray-800 pb-6">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-brand-600 via-brand-500 to-brand-cyan text-white text-3xl font-black flex items-center justify-center shadow-lg shadow-brand-500/20" id="profileAvatar">U</div>
-                                <div>
-                                    <h2 class="text-2xl font-black text-white" id="profileName">Founder Name</h2>
-                                    <p class="text-gray-400 text-sm mt-0.5" id="profileTagline">Country • Age</p>
-                                    <div class="mt-2 flex flex-wrap gap-2" id="profileBadges"></div>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-6 text-sm">
-                                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
-                                    <span class="text-xs font-bold text-gray-500 uppercase block mb-1">Standard / Education</span>
-                                    <span id="profileStandard" class="font-bold text-white">High School</span>
-                                </div>
-                                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
-                                    <span class="text-xs font-bold text-gray-500 uppercase block mb-1">Field Focus</span>
-                                    <span id="profileField" class="font-bold text-brand-cyan">AI & ML</span>
-                                </div>
-                                <div class="bg-gray-900/60 p-4 rounded-xl border border-gray-800">
-                                    <span class="text-xs font-bold text-gray-500 uppercase block mb-1">Execution Stage</span>
-                                    <span id="profileStatus" class="font-bold text-brand-neon">Building MVP</span>
-                                </div>
-                                <div class="sm:col-span-2 md:col-span-3 bg-gray-900/60 p-4 rounded-xl border border-gray-800">
-                                    <span class="text-xs font-bold text-gray-500 uppercase block mb-1">Startup Idea Pitch</span>
-                                    <p id="profileIdea" class="text-gray-200 text-sm leading-relaxed">Idea description</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-3">My Published Posts</h3>
-                            <div id="myPostsList" class="space-y-4"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </main>
-        </div>
-    </div>
-
-    <!-- POST MODAL -->
-    <div id="createPostModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-panel w-full max-w-lg p-6 rounded-2xl space-y-4">
-            <div class="flex justify-between items-center border-b border-gray-800 pb-3">
-                <h3 class="text-lg font-bold text-white">Share Startup Pitch / Question</h3>
-                <button onclick="closeCreatePostModal()" class="text-gray-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <form onsubmit="handlePostSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Title</label>
-                    <input type="text" id="postTitle" required placeholder="What are you building or asking peer feedback on?" class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Category / Tag</label>
-                    <select id="postCategory" class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500">
-                        <option value="Idea Pitch">💡 Idea Pitch</option>
-                        <option value="Seeking Co-Founder">🤝 Seeking Co-Founder</option>
-                        <option value="Feedback Request">💬 Feedback Request</option>
-                        <option value="Milestone Update">🚀 Milestone Update</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Detailed Content</label>
-                    <textarea id="postContent" rows="4" required placeholder="Provide details about your project, tech stack, target audience, or requirements..." class="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white text-sm focus:outline-none focus:border-brand-500"></textarea>
-                </div>
-                <div class="flex justify-end gap-3 pt-2">
-                    <button type="button" onclick="closeCreatePostModal()" class="px-4 py-2 bg-gray-800 text-gray-300 text-xs font-bold rounded-xl hover:bg-gray-700">Cancel</button>
-                    <button type="submit" class="px-5 py-2 bg-gradient-to-r from-brand-600 to-brand-500 text-white text-xs font-extrabold rounded-xl hover:from-brand-500 hover:to-brand-600">Publish Globally</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- VIEW FOUNDER DETAIL MODAL -->
-    <div id="founderModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-panel w-full max-w-xl p-6 rounded-2xl space-y-5 max-h-[90vh] overflow-y-auto" id="founderModalContent"></div>
-    </div>
-
-    <!-- FIREBASE REALTIME SYNC & LOGIC MODULE -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'foundx-network-app';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "demo-api-key",
-            authDomain: "demo-project.firebaseapp.com",
-            projectId: "demo-project"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        let currentUserDoc = null;
-        let allFounders = [];
-        let allPosts = [];
-        let activeFeedFilter = 'all';
-
-        // Local storage fallback key for smooth local demo testing if cloud permissions fail
-        const LOCAL_STORAGE_USERS_KEY = 'foundx_local_users';
-        const LOCAL_STORAGE_POSTS_KEY = 'foundx_local_posts';
-
-        // Collection path under public artifact scope
-        const USERS_COL = collection(db, 'artifacts', appId, 'public', 'data', 'users');
-        const POSTS_COL = collection(db, 'artifacts', appId, 'public', 'data', 'posts');
-
-        // Initial sample seed data for local fallback when network/permission error occurs
-        const sampleSeedUsers = [
-            { id: 'demo1', name: 'Aarav Patel', country: 'India', age: '17', standard: 'High School (9th-12th)', field: 'AI & Machine Learning', idea: 'Building an AI assistant for student entrepreneurs to summarize market research.', status: 'Building MVP', email: 'aarav@demo.com', isOnboarded: true },
-            { id: 'demo2', name: 'Sarah Jenkins', country: 'United States', age: '19', standard: 'Undergraduate Student', field: 'SaaS & Web Apps', idea: 'A lightweight micro-SaaS platform for freelance teen designers.', status: 'MVP Launched', email: 'sarah@demo.com', isOnboarded: true },
-            { id: 'demo3', name: 'Rohan Mehta', country: 'India', age: '16', standard: 'High School (9th-12th)', field: 'Fintech & Web3', idea: 'Financial literacy and teen pocket-money management tool.', status: 'Idea Stage', email: 'rohan@demo.com', isOnboarded: true }
-        ];
-
-        const sampleSeedPosts = [
-            { id: 'p1', authorId: 'demo1', authorName: 'Aarav Patel', authorField: 'AI & Machine Learning', authorCountry: 'India', title: 'Looking for a co-founder with React knowledge!', category: 'Seeking Co-Founder', content: 'Hey everyone! I am building an AI market analyzer and looking for a frontend developer to partner up.', likedBy: [], createdAt: Date.now() - 3600000 },
-            { id: 'p2', authorId: 'demo2', authorName: 'Sarah Jenkins', authorField: 'SaaS & Web Apps', authorCountry: 'United States', title: 'Just launched our MVP! Need early feedback', category: 'Feedback Request', content: 'Check out our freelance design tool for teens. Would love any feedback on user onboarding!', likedBy: ['demo1'], createdAt: Date.now() - 7200000 }
-        ];
-
-        // Helper to load/save local fallbacks
-        function getLocalUsers() {
-            const raw = localStorage.getItem(LOCAL_STORAGE_USERS_KEY);
-            return raw ? JSON.parse(raw) : sampleSeedUsers;
-        }
-
-        function saveLocalUsers(users) {
-            localStorage.setItem(LOCAL_STORAGE_USERS_KEY, JSON.stringify(users));
-        }
-
-        function getLocalPosts() {
-            const raw = localStorage.getItem(LOCAL_STORAGE_POSTS_KEY);
-            return raw ? JSON.parse(raw) : sampleSeedPosts;
-        }
-
-        function saveLocalPosts(posts) {
-            localStorage.setItem(LOCAL_STORAGE_POSTS_KEY, JSON.stringify(posts));
-        }
-
-        async function initAuth() {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (err) {
-                console.warn("Auth initialization fallback:", err);
-                try {
-                    await signInAnonymously(auth);
-                } catch (e) {
-                    console.error("Anonymous auth failed, using local offline mode.", e);
-                }
-            }
-        }
-
-        initAuth();
-
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                const userRef = doc(db, 'artifacts', appId, 'public', 'data', 'users', user.uid);
-                
-                try {
-                    onSnapshot(userRef, (snapshot) => {
-                        if (snapshot.exists()) {
-                            currentUserDoc = { id: user.uid, ...snapshot.data() };
-                            if (currentUserDoc.isOnboarded) {
-                                showDashboard();
-                            } else {
-                                showOnboarding();
-                            }
-                        } else {
-                            // Check local storage fallback
-                            const localUsers = getLocalUsers();
-                            const found = localUsers.find(u => u.id === user.uid);
-                            if (found) {
-                                currentUserDoc = found;
-                                if (currentUserDoc.isOnboarded) showDashboard();
-                                else showOnboarding();
-                            } else {
-                                showAuth();
-                            }
-                        }
-                        document.getElementById('loadingOverlay').classList.add('hidden');
-                    }, (err) => {
-                        console.warn("User doc listener fallback triggered:", err.message);
-                        handleFallbackUserDoc(user.uid);
-                    });
-                } catch (e) {
-                    handleFallbackUserDoc(user.uid);
-                }
-
-                setupLiveSync();
-            } else {
-                showAuth();
-                document.getElementById('loadingOverlay').classList.add('hidden');
-            }
-        });
-
-        function handleFallbackUserDoc(uid) {
-            const localUsers = getLocalUsers();
-            currentUserDoc = localUsers.find(u => u.id === uid);
-            if (currentUserDoc && currentUserDoc.isOnboarded) {
-                showDashboard();
-            } else {
-                showAuth();
-            }
-            document.getElementById('loadingOverlay').classList.add('hidden');
-        }
-
-        function setupLiveSync() {
-            // Live Users Sync
-            try {
-                onSnapshot(USERS_COL, (snapshot) => {
-                    allFounders = snapshot.docs
-                        .map(d => ({ id: d.id, ...d.data() }))
-                        .filter(u => u.isOnboarded);
-                    
-                    document.getElementById('founderCountBadge').innerText = `${allFounders.length} Founders Registered`;
-                    window.renderFoundersNetwork();
-                }, (err) => {
-                    console.warn("Founders sync permission fallback active:", err.message);
-                    allFounders = getLocalUsers().filter(u => u.isOnboarded);
-                    document.getElementById('founderCountBadge').innerText = `${allFounders.length} Founders Registered`;
-                    window.renderFoundersNetwork();
-                });
-            } catch (err) {
-                allFounders = getLocalUsers().filter(u => u.isOnboarded);
-                document.getElementById('founderCountBadge').innerText = `${allFounders.length} Founders Registered`;
-                window.renderFoundersNetwork();
-            }
-
-            // Live Posts Sync
-            try {
-                onSnapshot(POSTS_COL, (snapshot) => {
-                    allPosts = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                    allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-                    window.renderFeed();
-                    window.renderMyPosts();
-                }, (err) => {
-                    console.warn("Posts sync permission fallback active:", err.message);
-                    allPosts = getLocalPosts();
-                    allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-                    window.renderFeed();
-                    window.renderMyPosts();
-                });
-            } catch (err) {
-                allPosts = getLocalPosts();
-                allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-                window.renderFeed();
-                window.renderMyPosts();
-            }
-        }
-
-        function showAuth() {
-            document.getElementById('authScreen').classList.remove('hidden');
-            document.getElementById('onboardingScreen').classList.add('hidden');
-            document.getElementById('mainDashboard').classList.add('hidden');
-        }
-
-        function showOnboarding() {
-            document.getElementById('authScreen').classList.add('hidden');
-            document.getElementById('onboardingScreen').classList.remove('hidden');
-            document.getElementById('mainDashboard').classList.add('hidden');
-            if (auth.currentUser) {
-                document.getElementById('obEmail').value = auth.currentUser.email || 'user@foundx.com';
-            }
-        }
-
-        function showDashboard() {
-            document.getElementById('authScreen').classList.add('hidden');
-            document.getElementById('onboardingScreen').classList.add('hidden');
-            document.getElementById('mainDashboard').classList.remove('hidden');
-            updateUIProfileInfo();
-        }
-
-        function updateUIProfileInfo() {
-            if (!currentUserDoc) return;
-            const letter = (currentUserDoc.name || 'U')[0].toUpperCase();
-            document.getElementById('sidebarAvatar').innerText = letter;
-            document.getElementById('sidebarUserName').innerText = currentUserDoc.name || 'Founder';
-            document.getElementById('sidebarUserField').innerText = currentUserDoc.field || 'Tech';
-
-            document.getElementById('profileAvatar').innerText = letter;
-            document.getElementById('profileName').innerText = currentUserDoc.name;
-            document.getElementById('profileTagline').innerText = `${currentUserDoc.country || 'Global'} • Age ${currentUserDoc.age || 'N/A'}`;
-            document.getElementById('profileStandard').innerText = currentUserDoc.standard || 'N/A';
-            document.getElementById('profileField').innerText = currentUserDoc.field || 'N/A';
-            document.getElementById('profileStatus').innerText = currentUserDoc.status || 'N/A';
-            document.getElementById('profileIdea').innerText = currentUserDoc.idea || 'No pitch provided yet.';
-
-            const badgeContainer = document.getElementById('profileBadges');
-            badgeContainer.innerHTML = `
-                <span class="text-xs bg-brand-500/10 text-brand-500 border border-brand-500/30 px-2.5 py-0.5 rounded-full font-bold">${currentUserDoc.field}</span>
-                <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">${currentUserDoc.status}</span>
-                <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2.5 py-0.5 rounded-full font-bold">${currentUserDoc.country}</span>
-            `;
-        }
-
-        window.handleAuthSubmit = async function(e) {
-            e.preventDefault();
-            const user = auth.currentUser;
-            const userId = user ? user.uid : 'user_' + Date.now();
-
-            const nameInput = document.getElementById('authName').value || 'Entrepreneur';
-            const emailInput = document.getElementById('authEmail').value;
-            
-            const newUserObj = {
-                id: userId,
-                name: nameInput,
-                email: emailInput,
-                isOnboarded: false,
-                createdAt: Date.now()
-            };
-
-            currentUserDoc = newUserObj;
-
-            try {
-                const userRef = doc(db, 'artifacts', appId, 'public', 'data', 'users', userId);
-                await setDoc(userRef, newUserObj, { merge: true });
-            } catch (err) {
-                console.warn("Firestore save user doc fallback:", err.message);
-                const localUsers = getLocalUsers();
-                localUsers.push(newUserObj);
-                saveLocalUsers(localUsers);
-            }
-
-            showOnboarding();
-        };
-
-        window.handleOnboardingSubmit = async function(e) {
-            e.preventDefault();
-            const user = auth.currentUser;
-            const userId = user ? user.uid : (currentUserDoc ? currentUserDoc.id : 'user_' + Date.now());
-
-            const selectedStandard = document.querySelector('input[name="obStandard"]:checked')?.value || 'Student';
-
-            const profileData = {
-                id: userId,
-                name: document.getElementById('obName').value,
-                country: document.getElementById('obCountry').value,
-                age: document.getElementById('obAge').value,
-                dob: document.getElementById('obDob').value,
-                phone: document.getElementById('obPhone').value,
-                standard: selectedStandard,
-                field: document.getElementById('obField').value,
-                idea: document.getElementById('obIdea').value,
-                status: document.getElementById('obStatus').value,
-                isOnboarded: true
-            };
-
-            currentUserDoc = profileData;
-
-            try {
-                const userRef = doc(db, 'artifacts', appId, 'public', 'data', 'users', userId);
-                await setDoc(userRef, profileData, { merge: true });
-            } catch (err) {
-                console.warn("Firestore save onboarding doc fallback:", err.message);
-            }
-
-            // Sync with local backup
-            const localUsers = getLocalUsers();
-            const idx = localUsers.findIndex(u => u.id === userId);
-            if (idx >= 0) localUsers[idx] = profileData;
-            else localUsers.push(profileData);
-            saveLocalUsers(localUsers);
-
-            // Add to live memory
-            const liveIdx = allFounders.findIndex(f => f.id === userId);
-            if (liveIdx >= 0) allFounders[liveIdx] = profileData;
-            else allFounders.push(profileData);
-
-            document.getElementById('founderCountBadge').innerText = `${allFounders.length} Founders Registered`;
-            showDashboard();
-            window.renderFoundersNetwork();
-        };
-
-        window.renderFeed = function() {
-            const container = document.getElementById('postsFeedList');
-            let filteredPosts = allPosts;
-
-            if (activeFeedFilter !== 'all') {
-                filteredPosts = filteredPosts.filter(p => p.authorField === activeFeedFilter);
-            }
-
-            if (filteredPosts.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12 text-gray-500 glass-panel rounded-2xl">
-                        <i class="fa-solid fa-lightbulb text-3xl mb-2 text-gray-600 block"></i>
-                        No pitches in this category yet. Be the first to publish one!
-                    </div>`;
-                return;
-            }
-
-            const currentUid = auth.currentUser ? auth.currentUser.uid : (currentUserDoc ? currentUserDoc.id : '');
-
-            container.innerHTML = filteredPosts.map(post => {
-                const isLiked = post.likedBy && currentUid && post.likedBy.includes(currentUid);
-                return `
-                <div class="glass-panel p-5 rounded-2xl space-y-3 hover:border-brand-500/30 transition">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3 cursor-pointer" onclick="openFounderModal('${post.authorId}')">
-                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-cyan text-white font-extrabold flex items-center justify-center shadow">
-                                ${(post.authorName || 'F')[0].toUpperCase()}
-                            </div>
-                            <div>
-                                <div class="text-sm font-bold text-white hover:text-brand-500 transition">${post.authorName}</div>
-                                <div class="text-xs text-brand-cyan flex items-center gap-1.5">
-                                    <span>${post.authorField || 'Builder'}</span> •
-                                    <span class="text-gray-400">${post.authorCountry || 'Global'}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="text-xs bg-gray-800 text-gray-300 border border-gray-700 px-2.5 py-1 rounded-full font-semibold">${post.category || 'Idea Pitch'}</span>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-extrabold text-white mb-1">${post.title}</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">${post.content}</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-3 border-t border-gray-800/80 text-xs">
-                        <button onclick="toggleUpvote('${post.id}')" class="flex items-center gap-2 px-3 py-1.5 rounded-xl border ${isLiked ? 'bg-brand-500/20 text-brand-neon border-brand-neon/40 font-bold' : 'bg-gray-900/60 text-gray-400 border-gray-800 hover:text-white'} transition">
-                            <i class="fa-solid fa-circle-arrow-up text-sm"></i>
-                            <span>${(post.likedBy || []).length} Upvotes</span>
-                        </button>
-                        <button onclick="openFounderModal('${post.authorId}')" class="text-brand-500 font-bold hover:underline flex items-center gap-1">
-                            <span>View Founder Profile</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                        </button>
-                    </div>
-                </div>
-                `;
-            }).join('');
-        };
-
-        window.filterFeedByField = function(field) {
-            activeFeedFilter = field;
-            document.querySelectorAll('.feed-filter-btn').forEach(btn => {
-                btn.className = 'feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:bg-gray-700';
-            });
-            if (event && event.target) {
-                event.target.className = 'feed-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-500 text-white';
-            }
-            window.renderFeed();
-        };
-
-        window.toggleUpvote = async function(postId) {
-            const currentUid = auth.currentUser ? auth.currentUser.uid : (currentUserDoc ? currentUserDoc.id : 'guest');
-
-            const post = allPosts.find(p => p.id === postId);
-            if (!post) return;
-
-            let likedBy = post.likedBy || [];
-            if (likedBy.includes(currentUid)) {
-                likedBy = likedBy.filter(id => id !== currentUid);
-            } else {
-                likedBy.push(currentUid);
-            }
-
-            post.likedBy = likedBy;
-
-            try {
-                const postRef = doc(db, 'artifacts', appId, 'public', 'data', 'posts', postId);
-                await updateDoc(postRef, { likedBy: likedBy });
-            } catch (err) {
-                console.warn("Firestore upvote fallback:", err.message);
-                saveLocalPosts(allPosts);
-            }
-
-            window.renderFeed();
-        };
-
-        window.renderFoundersNetwork = function() {
-            const grid = document.getElementById('foundersGrid');
-            const search = (document.getElementById('networkSearch').value || '').toLowerCase().trim();
-            const field = document.getElementById('networkFieldFilter').value;
-            const stage = document.getElementById('networkStageFilter').value;
-
-            let filtered = allFounders;
-
-            if (search) {
-                filtered = filtered.filter(f => 
-                    (f.name && f.name.toLowerCase().includes(search)) || 
-                    (f.country && f.country.toLowerCase().includes(search)) ||
-                    (f.idea && f.idea.toLowerCase().includes(search))
-                );
-            }
-
-            if (field !== 'all') {
-                filtered = filtered.filter(f => f.field === field);
-            }
-
-            if (stage !== 'all') {
-                filtered = filtered.filter(f => f.status === stage);
-            }
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-gray-500 glass-panel rounded-2xl">
-                        <i class="fa-solid fa-user-slash text-3xl mb-2 text-gray-600 block"></i>
-                        No founders found matching your search query.
-                    </div>`;
-                return;
-            }
-
-            grid.innerHTML = filtered.map(f => `
-                <div onclick="openFounderModal('${f.id}')" class="glass-card p-5 rounded-2xl space-y-3 cursor-pointer hover:scale-[1.02] transition duration-200">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-600 to-brand-purple text-white font-black text-lg flex items-center justify-center shadow">
-                             ${(f.name || 'U')[0].toUpperCase()}
-                        </div>
-                        <div class="truncate">
-                            <h4 class="font-bold text-white text-sm truncate">${f.name}</h4>
-                            <span class="text-xs text-gray-400 block">${f.country} • Age ${f.age || 'N/A'}</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] font-bold bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30 px-2 py-0.5 rounded-full">${f.field}</span>
-                        <span class="text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">${f.status}</span>
-                    </div>
-                    <div class="bg-gray-900/50 p-2.5 rounded-xl border border-gray-800/80">
-                        <p class="text-xs text-gray-300 line-clamp-2">"${f.idea || 'Building in stealth...'}"</p>
-                    </div>
-                    <div class="text-[11px] font-bold text-brand-500 flex items-center justify-between pt-1">
-                        <span>View Profile & Contact</span>
-                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </div>
-                </div>
-            `).join('');
-        };
-
-        window.openFounderModal = function(founderId) {
-            const founder = allFounders.find(f => f.id === founderId);
-            if (!founder) return;
-
-            const founderPosts = allPosts.filter(p => p.authorId === founderId);
-            const modalContent = document.getElementById('founderModalContent');
-
-            modalContent.innerHTML = `
-                <div class="flex justify-between items-start border-b border-gray-800 pb-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-cyan text-white text-2xl font-black flex items-center justify-center shadow-lg">
-                            ${(founder.name || 'F')[0].toUpperCase()}
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-black text-white">${founder.name}</h3>
-                            <p class="text-xs text-gray-400">${founder.country} • Age ${founder.age || 'N/A'}</p>
-                            <span class="inline-block text-[11px] font-bold bg-brand-500/20 text-brand-cyan px-2.5 py-0.5 rounded-full mt-1">${founder.field}</span>
-                        </div>
-                    </div>
-                    <button onclick="closeFounderModal()" class="text-gray-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
-                </div>
-
-                <div class="space-y-4 text-xs">
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800">
-                            <span class="text-gray-500 uppercase font-bold block mb-0.5">Education/Class</span>
-                            <span class="font-bold text-white text-sm">${founder.standard || 'N/A'}</span>
-                        </div>
-                        <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800">
-                            <span class="text-gray-500 uppercase font-bold block mb-0.5">Execution Stage</span>
-                            <span class="font-bold text-brand-neon text-sm">${founder.status || 'N/A'}</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900/80 p-3.5 rounded-xl border border-gray-800 space-y-1">
-                        <span class="text-gray-500 uppercase font-bold block">Startup Pitch</span>
-                        <p class="text-gray-200 text-sm leading-relaxed">${founder.idea || 'No pitch provided.'}</p>
-                    </div>
-
-                    <div class="bg-gray-900/80 p-3.5 rounded-xl border border-gray-800 space-y-2">
-                        <span class="text-gray-500 uppercase font-bold block">Contact Founder</span>
-                        <div class="flex flex-wrap gap-4 text-gray-300 text-xs">
-                            ${founder.email ? `<div><i class="fa-solid fa-envelope text-brand-cyan mr-1.5"></i> ${founder.email}</div>` : ''}
-                            ${founder.phone ? `<div><i class="fa-solid fa-phone text-emerald-400 mr-1.5"></i> ${founder.phone}</div>` : ''}
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-white text-sm mb-2">Pitches by ${founder.name} (${founderPosts.length})</h4>
-                        <div class="space-y-2">
-                            ${founderPosts.length === 0 ? '<p class="text-gray-500">No posts published yet.</p>' : founderPosts.map(p => `
-                                <div class="bg-gray-900/40 p-3 rounded-xl border border-gray-800">
-                                    <div class="font-bold text-white text-xs">${p.title}</div>
-                                    <div class="text-gray-400 text-xs mt-1">${p.content}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('founderModal').classList.remove('hidden');
-        };
-
-        window.closeFounderModal = function() {
-            document.getElementById('founderModal').classList.add('hidden');
-        };
-
-        window.renderMyPosts = function() {
-            const currentUid = auth.currentUser ? auth.currentUser.uid : (currentUserDoc ? currentUserDoc.id : '');
-            if (!currentUid) return;
-            const container = document.getElementById('myPostsList');
-            const myPosts = allPosts.filter(p => p.authorId === currentUid);
-
-            if (myPosts.length === 0) {
-                container.innerHTML = `<div class="text-gray-500 text-xs py-4">You haven't posted any pitch yet.</div>`;
-                return;
-            }
-
-            container.innerHTML = myPosts.map(p => `
-                <div class="glass-panel p-4 rounded-xl space-y-2">
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-white text-sm">${p.title}</h4>
-                        <span class="text-[10px] bg-brand-500/20 text-brand-cyan px-2 py-0.5 rounded-full">${p.category}</span>
-                    </div>
-                    <p class="text-xs text-gray-300">${p.content}</p>
-                    <div class="text-[10px] text-gray-500 pt-1">${(p.likedBy || []).length} Upvotes</div>
-                </div>
-            `).join('');
-        };
-
-        window.handlePostSubmit = async function(e) {
-            e.preventDefault();
-            const currentUid = auth.currentUser ? auth.currentUser.uid : (currentUserDoc ? currentUserDoc.id : 'user_' + Date.now());
-
-            const newPostObj = {
-                id: 'post_' + Date.now(),
-                authorId: currentUid,
-                authorName: currentUserDoc ? (currentUserDoc.name || 'Anonymous') : 'Anonymous',
-                authorField: currentUserDoc ? (currentUserDoc.field || 'General') : 'General',
-                authorCountry: currentUserDoc ? (currentUserDoc.country || 'Global') : 'Global',
-                title: document.getElementById('postTitle').value,
-                category: document.getElementById('postCategory').value,
-                content: document.getElementById('postContent').value,
-                likedBy: [],
-                createdAt: Date.now()
-            };
-
-            try {
-                await addDoc(POSTS_COL, newPostObj);
-            } catch (err) {
-                console.warn("Firestore post creation fallback:", err.message);
-                allPosts.unshift(newPostObj);
-                saveLocalPosts(allPosts);
-            }
-
-            closeCreatePostModal();
-            document.getElementById('postTitle').value = '';
-            document.getElementById('postContent').value = '';
-
-            window.renderFeed();
-            window.renderMyPosts();
-        };
-
-        window.logoutUser = function() {
-            signOut(auth);
-            location.reload();
-        };
-    </script>
-
-    <!-- UI STEPPER & NAVIGATION CONTROL -->
-    <script>
-        let currentOnboardStep = 1;
-
-        function switchAuthTab(mode) {
-            const tabLogin = document.getElementById('tabLogin');
-            const tabSignup = document.getElementById('tabSignup');
-            const nameFieldContainer = document.getElementById('nameFieldContainer');
-            if (mode === 'login') {
-                tabLogin.className = 'flex-1 pb-3 text-center font-bold text-brand-500 border-b-2 border-brand-500';
-                tabSignup.className = 'flex-1 pb-3 text-center font-bold text-gray-400 border-b-2 border-transparent';
-                nameFieldContainer.classList.add('hidden');
-            } else {
-                tabSignup.className = 'flex-1 pb-3 text-center font-bold text-brand-500 border-b-2 border-brand-500';
-                tabLogin.className = 'flex-1 pb-3 text-center font-bold text-gray-400 border-b-2 border-transparent';
-                nameFieldContainer.classList.remove('hidden');
-            }
-        }
-
-        function navigateStep(direction) {
-            currentOnboardStep += direction;
-            if (currentOnboardStep < 1) currentOnboardStep = 1;
-            if (currentOnboardStep > 4) currentOnboardStep = 4;
-
-            for (let i = 1; i <= 4; i++) {
-                document.getElementById(`onboardStep${i}`).classList.add('hidden');
-            }
-            document.getElementById(`onboardStep${currentOnboardStep}`).classList.remove('hidden');
-
-            const percent = currentOnboardStep * 25;
-            document.getElementById('progressBar').style.width = percent + '%';
-            document.getElementById('stepIndicator').innerText = `Step ${currentOnboardStep} of 4`;
-            document.getElementById('stepPercent').innerText = `${percent}% Completed`;
-
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const submitBtn = document.getElementById('submitOnboardBtn');
-
-            if (currentOnboardStep === 1) prevBtn.classList.add('invisible');
-            else prevBtn.classList.remove('invisible');
-
-            if (currentOnboardStep === 4) {
-                nextBtn.classList.add('hidden');
-                submitBtn.classList.remove('hidden');
-            } else {
-                nextBtn.classList.remove('hidden');
-                submitBtn.classList.add('hidden');
-            }
-        }
-
-        function selectField(element, fieldName) {
-            document.querySelectorAll('.field-card').forEach(card => {
-                card.classList.remove('border-brand-500', 'bg-brand-500/10');
-            });
-            element.classList.add('border-brand-500', 'bg-brand-500/10');
-            document.getElementById('obField').value = fieldName;
-        }
-
-        function switchTab(tabId) {
-            const titles = {
-                'feed': '<i class="fa-solid fa-newspaper text-brand-500"></i> Global Community Feed',
-                'network': '<i class="fa-solid fa-users text-brand-cyan"></i> Founders Directory & Real-Time Search',
-                'profile': '<i class="fa-solid fa-id-card text-brand-purple"></i> My Founder Profile'
-            };
-
-            ['feed', 'network', 'profile'].forEach(t => {
-                document.getElementById(`nav-${t}`).className = 'w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-gray-800/50 hover:text-white font-bold text-sm transition';
-                document.getElementById(`tab-content-${t}`).classList.add('hidden');
-            });
-
-            document.getElementById(`nav-${tabId}`).className = 'w-full flex items-center gap-3 px-4 py-3 rounded-xl text-brand-500 bg-brand-500/10 font-bold text-sm transition';
-            document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
-            document.getElementById('currentTabTitle').innerHTML = titles[tabId];
-        }
-
-        function openCreatePostModal() {
-            document.getElementById('createPostModal').classList.remove('hidden');
-        }
-
-        function closeCreatePostModal() {
-            document.getElementById('createPostModal').classList.add('hidden');
-        }
-    </script>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Marthi Megwani</h1>
+    <p class="sub">Tap karke order karein. Menu seedha phone par.</p>
+    <span class="chip" id="tableChip">Table –</span>
+  </header>
+  <nav id="tabs" aria-label="Menu categories"></nav>
+  <main id="menu"></main>
+</div>
+
+<div class="bar" id="bar" hidden>
+  <button id="openCart"><span id="cnt">0 items</span><span id="sum">₹0</span></button>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Aapka order">
+  <div class="panel">
+    <button class="close" id="close">Band karein</button>
+    <h2 style="margin-top:0">Aapka order</h2>
+    <div id="lines"></div>
+    <div class="row total"><span>Total</span><span id="tot">₹0</span></div>
+    <label for="tbl">Table number</label>
+    <input id="tbl" inputmode="numeric" placeholder="Jaise 5">
+    <label for="nm">Aapka naam</label>
+    <input id="nm" placeholder="Naam likhein">
+    <p class="note">Order cafe ke WhatsApp par jayega. Payment counter par ya UPI se hoga.</p>
+    <a class="cta" id="send" href="#" target="_blank" rel="noopener"><span>Order bhejein</span><span id="tot2">₹0</span></a>
+    <button class="close" id="copyBtn" type="button" style="float:none;display:block;margin:12px auto 0">WhatsApp na khule to message copy karein</button>
+  </div>
+</div>
+
+<script>
+// Cafe ka WhatsApp number (country code ke saath, + ke bina). Yahan apna number badlein.
+var WA = "917354103448";
+var CATS = {
+  "Momos":[["Atta Momos Steam (Half)","Bhaap mein pake",30,1],["Atta Momos Steam (Full)","Bhaap mein pake",50,1],["Atta Momos Fried (Half)","Crispy tale hue",40,1],["Atta Momos Fried (Full)","Crispy tale hue",60,1]],
+  "Snacks":[["Vada Pav","Garam aur teekha",25,1],["Burger","Taaza bana hua",50,1],["Sandwich","Toast kiya hua",40,1]]
+};
+var cart = {}, items = [], current = "Momos";
+Object.keys(CATS).forEach(function(c){CATS[c].forEach(function(r){items.push({id:items.length,cat:c,name:r[0],desc:r[1],price:r[2]})})});
+
+function $(i){return document.getElementById(i)}
+function inr(n){return "₹"+n}
+// Table number: published page mein #table-5 se aata hai. Apni site par ?table=5 use karein.
+var m = location.hash.match(/^#table-(\d+)$/);
+var table = m ? m[1] : "";
+$("tableChip").textContent = table ? "Table " + table : "Table chunein";
+$("tbl").value = table;
+
+function renderTabs(){
+  $("tabs").innerHTML = "";
+  Object.keys(CATS).forEach(function(c){
+    var b = document.createElement("button");
+    b.textContent = c; b.setAttribute("aria-pressed", c === current);
+    b.onclick = function(){current = c; renderTabs(); renderMenu()};
+    $("tabs").appendChild(b);
+  });
+}
+function renderMenu(){
+  var h = "<h2>" + current + "</h2>";
+  items.filter(function(i){return i.cat === current}).forEach(function(i){
+    var q = cart[i.id] || 0;
+    h += '<div class="item"><div><div class="name"><span class="veg" title="Veg"></span>' + i.name + '</div><p class="desc">' + i.desc + '</p><div class="price">' + inr(i.price) + '</div></div>' +
+      (q ? '<div class="qty"><button data-d="-1" data-id="' + i.id + '" aria-label="Kam karein">−</button><span>' + q + '</span><button data-d="1" data-id="' + i.id + '" aria-label="Badhayein">+</button></div>'
+         : '<button class="add" data-d="1" data-id="' + i.id + '">Add</button>') + '</div>';
+  });
+  $("menu").innerHTML = h;
+}
+function totals(){
+  var n = 0, s = 0;
+  items.forEach(function(i){var q = cart[i.id] || 0; n += q; s += q * i.price});
+  return {n:n, s:s};
+}
+function refresh(){
+  var t = totals();
+  $("bar").hidden = t.n === 0;
+  $("cnt").textContent = t.n + (t.n === 1 ? " item" : " items");
+  $("sum").textContent = inr(t.s) + "  Order dekhein";
+  renderMenu(); renderSheet();
+}
+function renderSheet(){
+  var t = totals(), h = "";
+  items.forEach(function(i){var q = cart[i.id]; if(q) h += '<div class="row"><span>' + q + " × " + i.name + '</span><span>' + inr(q * i.price) + '</span></div>'});
+  $("lines").innerHTML = h || "<p class='note'>Abhi kuch nahi chuna.</p>";
+  $("tot").textContent = inr(t.s); $("tot2").textContent = inr(t.s);
+  if (t.n === 0) $("sheet").classList.remove("open");
+}
+document.addEventListener("click", function(e){
+  var b = e.target.closest("[data-id]"); if(!b) return;
+  var id = b.getAttribute("data-id"), d = +b.getAttribute("data-d");
+  cart[id] = Math.max(0, (cart[id] || 0) + d); refresh();
+});
+$("openCart").onclick = function(){$("sheet").classList.add("open")};
+$("close").onclick = function(){$("sheet").classList.remove("open")};
+$("send").onclick = function(){
+  var t = totals(), msg = "Naya order\nTable: " + ($("tbl").value || "-") + "\nNaam: " + ($("nm").value || "-") + "\n\n";
+  items.forEach(function(i){var q = cart[i.id]; if(q) msg += q + " x " + i.name + " = " + inr(q * i.price) + "\n"});
+  msg += "\nTotal: " + inr(t.s);
+  this.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+};
+$("copyBtn").onclick = function(){
+  var t = totals(), msg = "Naya order\nTable: " + ($("tbl").value || "-") + "\nNaam: " + ($("nm").value || "-") + "\n\n";
+  items.forEach(function(i){var q = cart[i.id]; if(q) msg += q + " x " + i.name + " = " + inr(q * i.price) + "\n"});
+  msg += "\nTotal: " + inr(t.s);
+  var btn = this, ok = function(){btn.textContent = "Copy ho gaya. Ab WhatsApp mein paste karein"};
+  try{ navigator.clipboard.writeText(msg).then(ok, function(){fb()}); }catch(e){ fb(); }
+  function fb(){var a = document.createElement("textarea"); a.value = msg; document.body.appendChild(a); a.select(); try{document.execCommand("copy"); ok();}catch(e){} document.body.removeChild(a);}
+};
+renderTabs(); refresh();
+</script>
 </body>
 </html>
