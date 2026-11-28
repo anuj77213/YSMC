@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Chashni – Counter</title>
+<style>
+body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fffaf1;color:#2d2218}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;background:#fff;border-bottom:1px solid #f3e5cd;position:sticky;top:0}
+h1{margin:0;font-size:20px}.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+button{font:inherit;font-weight:700;border:0;border-radius:99px;padding:9px 18px;background:linear-gradient(135deg,#ff8a1f,#e8420b);color:#fff;cursor:pointer}
+button.g{background:#fff;color:#e8590c;border:1px solid #f3e5cd;padding:6px 14px}
+#st{font-size:13px;color:#7a6c5d}
+main{padding:20px;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.o{background:#fff;border:1px solid #f3e5cd;border-radius:16px;padding:16px}.o.new{border-color:#e8590c;box-shadow:0 0 0 3px rgba(232,89,12,.2)}
+.o h3{margin:0}.o ul{margin:8px 0;padding-left:18px}.n{color:#7a6c5d;font-size:14px}
+#bill{display:none}
+@media print{body>*:not(#bill){display:none!important}#bill{display:block;width:48mm;padding:2mm 4mm;font:12px/1.35 monospace;color:#000;background:#fff}@page{size:58mm auto;margin:0}.r{display:flex;justify-content:space-between;gap:6px}.c{text-align:center}hr{border:0;border-top:1px dashed #000}}
+</style></head><body>
+<header><h1>🧾 Chashni – Counter</h1><div class="bar"><span id="st">Press Start</span><label><input type="checkbox" id="auto" checked> Auto print</label><button id="go">Start</button><button class="g" id="pr">Connect printer</button><button class="g" id="test">Test print</button></div></header>
+<main id="list"><p class="n">Naye orders yahan dikhenge aur bill apne aap print hoga.</p></main>
+<div id="bill"></div>
+<script>
+var TOPIC="chashni-5ccc24498293c2", NAME="Chashni";
+var $=function(i){return document.getElementById(i)};
+var done=[],queue=[],busy=false,ac=null,orders=[],port=null;
+try{done=JSON.parse(localStorage.getItem("done")||"[]")}catch(e){}
+function save(){try{localStorage.setItem("done",JSON.stringify(done.slice(-300)))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function bill(o){
+  var h='<div class="c"><b>'+esc(NAME.toUpperCase())+'</b><br>Order #'+esc(o.id)+'<br>'+new Date(o.ts).toLocaleString("en-IN")+'</div><hr><div>Table: <b>'+esc(o.table||"-")+'</b>'+(o.name?'<br>Name: '+esc(o.name):'')+'</div><hr>';
+  o.items.forEach(function(l){var a=String(l).split("|");h+='<div class="r"><span>'+esc(a[0])+' x '+esc(a[1])+'</span><span>'+(a[0]*a[2]||0)+'</span></div>'});
+  return h+'<hr><div class="r"><b>TOTAL</b><b>Rs '+esc(o.total)+'</b></div>'+(o.note?'<hr>Note: '+esc(o.note):'')+'<hr><div class="c">Thank you! Visit again</div><br><br><br>';
+}
+function ascii(s){return String(s).replace(/[^\x20-\x7E]/g,"?")}
+function wr(l,r){var w=32-r.length-1,n=ascii(l),out=[];while(n.length>w){out.push(n.slice(0,w));n=n.slice(w)}out.push(n+" ".repeat(Math.max(1,32-n.length-r.length))+r);return out.join("\n")}
+function raw(o){
+  var hr="-".repeat(32),L=["\x1ba\x01\x1bE\x01"+NAME.toUpperCase()+"\x1bE\x00","Order #"+ascii(o.id),new Date(o.ts).toLocaleString("en-IN"),"\x1ba\x00"+hr,"Table: "+ascii(o.table||"-")+(o.name?"  Name: "+ascii(o.name):""),hr];
+  o.items.forEach(function(l){var a=String(l).split("|");L.push(wr(a[0]+" x "+a[1],String(a[0]*a[2]||0)))});
+  L.push(hr,"\x1bE\x01"+wr("TOTAL","Rs "+o.total)+"\x1bE\x00");
+  if(o.note)L.push(hr,"Note: "+ascii(o.note));
+  L.push(hr,"\x1ba\x01Thank you! Visit again\x1ba\x00","","","","");
+  var data=new TextEncoder().encode("\x1b@"+L.join("\n")+"\n"),w=port.writable.getWriter();
+  return w.write(data).then(function(){w.releaseLock()},function(e){try{w.releaseLock()}catch(x){}throw e});
+}
+function openPort(p){return p.open({baudRate:9600}).then(function(){port=p;$("pr").textContent="Printer connected ✓"})}
+function pump(){
+  if(busy||!queue.length)return;busy=true;var o=queue.shift();
+  var fin=function(){if(done.indexOf(o.id)<0){done.push(o.id);save()}busy=false;draw();setTimeout(pump,800)};
+  var web=function(){$("bill").innerHTML=bill(o);setTimeout(function(){window.print();fin()},150)};
+  if(port)raw(o).then(fin,function(){port=null;$("pr").textContent="Connect printer";web()});else web();
+}
+function draw(){
+  $("list").innerHTML=orders.length?orders.map(function(o,i){
+    return '<div class="o'+(done.indexOf(o.id)<0?' new':'')+'"><h3>Table '+esc(o.table||"-")+' · #'+esc(o.id)+'</h3><div class="n">'+new Date(o.ts).toLocaleTimeString("en-IN")+(o.name?' · '+esc(o.name):'')+'</div><ul>'+o.items.map(function(l){var a=String(l).split("|");return '<li>'+esc(a[0])+' x '+esc(a[1])+'</li>'}).join("")+'</ul><b>₹'+esc(o.total)+'</b>'+(o.note?'<div class="n">Note: '+esc(o.note)+'</div>':'')+'<div style="margin-top:10px"><button class="g" data-i="'+i+'">Reprint</button></div></div>';
+  }).join(""):'<p class="n">Naye orders yahan dikhenge aur bill apne aap print hoga.</p>';
+}
+function beep(){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=880;g.gain.value=.2;o.start();o.stop(ac.currentTime+.4)}catch(e){}}
+function add(o,fresh){
+  if(!o||!Array.isArray(o.items)||!o.id||orders.some(function(x){return x.id===o.id}))return;
+  orders.unshift(o);draw();
+  if(done.indexOf(o.id)<0){if($("auto").checked){queue.push(o);pump()}if(fresh)beep()}
+}
+function connect(){
+  var es=new EventSource("https://ntfy.sh/"+TOPIC+"/sse?since=12h");
+  es.onopen=function(){$("st").textContent="● Connected, waiting for orders"};
+  es.onerror=function(){$("st").textContent="Reconnecting…"};
+  es.onmessage=function(e){try{var m=JSON.parse(e.data);if(m.event==="message")add(JSON.parse(m.message),true)}catch(x){}};
+}
+$("go").onclick=function(){this.style.display="none";beep();try{navigator.wakeLock.request("screen")}catch(e){}connect();if(navigator.serial)navigator.serial.getPorts().then(function(ps){if(ps[0])openPort(ps[0]).catch(function(){})})};
+if(navigator.serial){$("pr").onclick=function(){navigator.serial.requestPort().then(openPort).catch(function(){});};navigator.serial.addEventListener("disconnect",function(){port=null;$("pr").textContent="Connect printer"})}else{$("pr").style.display="none"}
+$("test").onclick=function(){queue.push({id:"TEST",table:"1",name:"Test",note:"Test bill",items:["2|Veggie Pizza|210","1|Cold Coffee|115"],total:535,ts:Date.now()});pump()};
+$("list").onclick=function(e){var b=e.target.closest("[data-i]");if(b){queue.push(orders[+b.getAttribute("data-i")]);pump()}};
+</script></body></html>
