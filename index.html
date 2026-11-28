@@ -172,7 +172,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
   <label for="nt">Cooking instructions (optional)</label><textarea id="nt" rows="2" placeholder="Jaise: teekha kam, extra chutney"></textarea>
   <label for="nm">Your name (optional)</label><input id="nm" placeholder="Naam likhein">
   <label>Apna table number chunein</label><div class="tbs" id="tbs" role="group" aria-label="Table number"></div>
-  <p style="margin:14px 0;color:var(--muted);font-size:14px">Order cafe ke WhatsApp par jayega. Payment counter par ya UPI se.</p>
+  <p style="margin:14px 0;color:var(--muted);font-size:14px">Order cafe ke WhatsApp par jayega aur counter par bill bhi print hoga. Payment counter par ya UPI se.</p>
   <a class="go" id="send" href="#" target="_blank" rel="noopener"><span>Send order on WhatsApp</span><span id="tot2"></span></a>
   <button class="cp" id="cp" type="button">WhatsApp na khule to message copy karein</button>
 </div></div>
@@ -189,7 +189,7 @@ var CAFE = {
   story: "Rameshwar Nagar, Khandwa ka apna waffle cafe. Coffee se lekar pizza, pasta, Maggie aur shakes tak, sab kuch taaza aur dil se banta hai.",
   hero: "🧇", feature: "🍕", storyImg: "🥤",
   heroImg: "", featureImg: "", storyImgUrl: "",
-  address: "Rameshwar Nagar, Khandwa, Madhya Pradesh", phone: "7354103448", wa: "917354103448", table: "", tables: 7,
+  address: "Rameshwar Nagar, Khandwa, Madhya Pradesh", phone: "7354103448", wa: "917354103448", table: "", tables: 7, printTopic: "chashni-5ccc24498293c2",
   menu: [
     ["Coffee & Cold Brew","Coffee","☕","","Hot Coffee|40;Coffee Latte|65;Americano|90;Cappuccino|90;Hazelnut Coffee|90;Hot Chocolate|90"],
     ["Coffee & Cold Brew","Cold Brew","🧊","Extra thick +₹20","Regular Cold Coffee|115;CC with Choco-Chips|130;CC with Ice-Cream|155;CC with Hazelnut|170;CC with Brownie|180"],
@@ -277,21 +277,31 @@ function refresh(){
 }
 document.addEventListener("click", function(e){
   var b = e.target.closest("[data-id]");
-  if (b){var id = b.getAttribute("data-id"); cart[id] = Math.max(0,(cart[id]||0)+(+b.getAttribute("data-d"))); refresh(); return;}
+  if (b){oid = ""; var id = b.getAttribute("data-id"); cart[id] = Math.max(0,(cart[id]||0)+(+b.getAttribute("data-d"))); refresh(); return;}
   var tt = e.target.closest("[data-t]"); if (tt){setTable(tt.getAttribute("data-t")); return;}
   var c = e.target.closest("[data-cat]"); if (c){cur = c.getAttribute("data-cat"); tabs(); grid();}
 });
 $("q").addEventListener("input", grid);
 $("open").onclick = function(){$("sh").classList.add("on")};
 $("x").onclick = function(){$("sh").classList.remove("on")};
+var oid = "";
+function ensureId(){oid = oid || Date.now().toString(36).slice(-4).toUpperCase(); return oid}
+function sendToCounter(){
+  var t = totals(), L = [];
+  items.forEach(function(i){var q = cart[i.id]; if (q) L.push(q+"|"+i.name+"|"+i.price)});
+  var o = {id:oid, table:CAFE.table, name:$("nm").value.trim().slice(0,40), note:$("nt").value.trim().slice(0,200), items:L, total:t.s, ts:Date.now()};
+  try{fetch("https://ntfy.sh/"+CAFE.printTopic, {method:"POST", body:JSON.stringify(o), keepalive:true}).catch(function(){})}catch(e){}
+}
 function message(){
-  var t = totals(), s = "*Naya Order*\nTable: " + (CAFE.table || "-") + "\nNaam: " + ($("nm").value || "-") + "\n\n";
+  var t = totals(), s = "*Naya Order*" + (oid ? " #" + oid : "") + "\nTable: " + (CAFE.table || "-") + "\nNaam: " + ($("nm").value || "-") + "\n\n";
   items.forEach(function(i){var q = cart[i.id]; if (q) s += q + " x " + i.name + " (" + i.sec + ") = " + inr(q*i.price) + "\n"});
   if ($("nt").value.trim()) s += "\nNote: " + $("nt").value.trim() + "\n";
   return s + "\n*Total: " + inr(t.s) + "*";
 }
-$("send").onclick = function(e){if (!CAFE.table){e.preventDefault(); alert("Pehle apna table number chunein (1 se "+CAFE.tables+")"); return;} this.href = "https://wa.me/" + CAFE.wa + "?text=" + encodeURIComponent(message())};
+$("send").onclick = function(e){if (!CAFE.table){e.preventDefault(); alert("Pehle apna table number chunein (1 se "+CAFE.tables+")"); return;} ensureId(); sendToCounter(); this.href = "https://wa.me/" + CAFE.wa + "?text=" + encodeURIComponent(message())};
 $("cp").onclick = function(){
+  if (!CAFE.table){alert("Pehle apna table number chunein (1 se "+CAFE.tables+")"); return;}
+  ensureId(); sendToCounter();
   var msg = message(), b = this, ok = function(){b.textContent = "Copy ho gaya. WhatsApp mein paste karein"};
   function fb(){var a = document.createElement("textarea"); a.value = msg; document.body.appendChild(a); a.select(); try{document.execCommand("copy"); ok()}catch(e){} document.body.removeChild(a)}
   try{navigator.clipboard.writeText(msg).then(ok, fb)}catch(e){fb()}
